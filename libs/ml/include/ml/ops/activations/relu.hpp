@@ -69,6 +69,8 @@ public:
   {
     return DESCRIPTOR;
   }
+
+  MLChargeAmount ChargeForward() override;
 };
 
 }  // namespace ops

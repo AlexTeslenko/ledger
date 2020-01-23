@@ -63,6 +63,8 @@ public:
   }
   static constexpr char const *DESCRIPTOR = "RandomisedRelu";
 
+  MLChargeAmount ChargeForward() override;
+
 private:
   void UpdateRandomValue()
   {

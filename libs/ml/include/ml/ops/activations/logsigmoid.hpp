@@ -61,6 +61,8 @@ public:
   }
   static constexpr char const *DESCRIPTOR = "LogSigmoid";
 
+  MLChargeAmount ChargeForward() override;
+
 private:
   // maximum possible output value of the log-sigmoid should not be zero, but actually epsilon
   DataType epsilon_ = fetch::math::numeric_min<DataType>();

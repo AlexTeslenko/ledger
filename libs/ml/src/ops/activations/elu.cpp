@@ -108,6 +108,15 @@ std::vector<math::SizeType> Elu<TensorType>::ComputeOutputShape(VecTensorType co
   return inputs.front()->shape();
 }
 
+template <typename TensorType>
+ MLChargeAmount Elu<TensorType>::ChargeForward()
+ {
+   assert(!this->batch_output_shape_.empty());
+   MLChargeAmount cost = fetch::ml::ops::charge_cost::ELU_PER_ELEMENT *
+                         this->TotalElementsIn({this->batch_input_shapes_});
+   return cost;
+ }
+
 ///////////////////////////////
 /// EXPLICIT INSTANTIATIONS ///
 ///////////////////////////////

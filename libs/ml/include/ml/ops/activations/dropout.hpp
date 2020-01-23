@@ -69,6 +69,8 @@ public:
     return DESCRIPTOR;
   }
 
+  MLChargeAmount ChargeForward() override;
+
 private:
   TensorType drop_values_;
   DataType   probability_;

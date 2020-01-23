@@ -61,6 +61,8 @@ public:
   }
   static constexpr char const *DESCRIPTOR = "LogSoftmax";
 
+  MLChargeAmount ChargeForward() override;
+
 private:
   SizeType axis_;
 };

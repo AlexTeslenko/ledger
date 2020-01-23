@@ -131,6 +131,15 @@ std::vector<math::SizeType> Gelu<TensorType>::ComputeOutputShape(VecTensorType c
   return inputs.front()->shape();
 }
 
+template <typename TensorType>
+ MLChargeAmount Gelu<TensorType>::ChargeForward()
+ {
+   assert(!this->batch_output_shape_.empty());
+   MLChargeAmount cost = fetch::ml::ops::charge_cost::GELU_PER_ELEMENT *
+                         this->TotalElementsIn({this->batch_input_shapes_});
+   return cost;
+ }
+
 ///////////////////////////////
 /// EXPLICIT INSTANTIATIONS ///
 ///////////////////////////////

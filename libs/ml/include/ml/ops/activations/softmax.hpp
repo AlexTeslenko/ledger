@@ -74,6 +74,8 @@ public:
     return DESCRIPTOR;
   }
 
+  MLChargeAmount ChargeForward() override;
+
 private:
   SizeType              axis_;
   std::vector<SizeType> axes_;
